@@ -1,0 +1,13 @@
+#!/usr/bin/env ruby
+
+require "bundler/setup"
+require "screen_minion"
+
+config_file = YAML.load_file(File.expand_path('~') + '/.screen_minion.yml')
+ScreenMinion.configure do |config|
+  config_file.each do |k,v|
+    config.public_send("#{k}=", v)
+  end
+end
+
+ScreenMinion::Main.new

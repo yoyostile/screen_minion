@@ -1,0 +1,6 @@
+mc: "/usr/local/bin/mc"
+host: "s3"
+targets:
+- path: "~/Desktop/"
+  only: "^Screen"
+  bucket_path: "random/"
