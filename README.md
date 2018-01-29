@@ -1,28 +1,30 @@
 # ScreenMinion
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/screen_minion`. To experiment with that code, run `bin/console` for an interactive prompt.
+Automatically uploads files from certain dirs matching a certain pattern. Magic. 🔮
 
-TODO: Delete this and the text above, and describe your gem
+## Prerequisites
 
-## Installation
+* Install mc for your minio. (eg. `brew install minio-mc`)
+* Configure mc
+* Create a `~/.screen_minion.yml` like this:
 
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'screen_minion'
 ```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install screen_minion
+mc: "/usr/local/bin/mc"
+host: "s3"
+targets:
+- path: "~/Desktop/"
+  only: "^Screen"
+  bucket_path: "random/"
+```
 
 ## Usage
 
-TODO: Write usage instructions here
+Right now sth. like this:
+
+```
+$ bundle install
+$ bin/screen_minion &
+```
 
 ## Development
 
@@ -32,4 +34,4 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/screen_minion.
+Bug reports and pull requests are welcome on GitHub at https://github.com/yoyostile/screen_minion.
