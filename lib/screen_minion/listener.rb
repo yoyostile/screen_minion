@@ -17,6 +17,8 @@ module ScreenMinion
         if !(modified.empty? && added.empty?)
           response = uploader.upload_file(@bucket_path, (modified.empty? ? added[0] : modified[0]))
           url = URI.escape(response["url"])
+          puts "Uploaded file: #{@path}"
+          puts "#{url}\n"
           `echo #{url} | /usr/bin/pbcopy`
           TerminalNotifier.notify("Successful Upload: #{url}")
         end
